@@ -75,3 +75,8 @@ npm install --save-dev @types/express @types/mustache-express @types/node
 <p>@types/node: Pacote com definições de tipos TypeScript para o ambiente Node.js, permitindo interação segura com as APIs nativas do Node.js.    </p>
 
 &nbsp;
+
+### Depois de fazer essas instalções e crie uma pasta " SRC " e dentro dela crie um arquivo chamado "server.ts" para começar a RODAR
+
+- Agora para terminar com as configurações gerais do projeto vamos criar um atalho usando o nodemon
+- 3 dependencias que devem estar globais são as seguintes prestar atenção!!
