@@ -77,6 +77,56 @@ npm install --save-dev @types/express @types/mustache-express @types/node
 &nbsp;
 
 ### Depois de fazer essas instalções e crie uma pasta " SRC " e dentro dela crie um arquivo chamado "server.ts" para começar a RODAR
+<img src="imgREADME/SRC.PNG" alt="">
 
 - Agora para terminar com as configurações gerais do projeto vamos criar um atalho usando o nodemon
 - 3 dependencias que devem estar globais são as seguintes prestar atenção!!
+- NODEMON
+- typescript
+- ts-node
+<p><strong>Essas dependencias devem estar globais</strong></p>
+
+<p style="color: red;">Caso você não tenha essas dependências instaladas, não seja por isso, instale agora mesmo!</p>
+
+```bash
+npm install -g nodemon typescript ts-node
+```
+
+#
+
+### Depois de feito tudo isso !!
+- Vá ate seu 
+<p style="color: green;"><a href="package.json">package.json</a></p>
+
+- Adicionar essa seguinte informação !
+
+<img src="imgREADME/json_mustache.png" alt="">
+
+```bash
+nodemon -e ts,json,mustache src/server.ts
+```
+
+#
+
+### Pré-requisitos globais:
+
+`npm install -g nodemon typescript ts-node`
+
+#
+
+### Instalação
+
+`npm install`
+
+#
+
+### Para Rodar o Projeto
+
+`npm run start-dev`
+
+#
+
+### Criando Rotas
+
+<img src="imgREADME/Rotas.png">
+
