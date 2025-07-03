@@ -1,8 +1,11 @@
-# Projeto-Canil
-&nbsp;
+# Projeto-Canil da Talita 🐶
 &nbsp;
 
-Este é um projeto que utiliza Node.js e npm para gerenciar dependências.
+- Este é um projeto que utiliza Node.js e npm para gerenciar dependências.
+&nbsp;
+
+![Banner do Projeto](imgREADME/banner_readme.png)
+
 &nbsp;
 &nbsp;
 
@@ -126,7 +129,23 @@ nodemon -e ts,json,mustache src/server.ts
 
 #
 
-### Criando Rotas
+## Criando Rotas ✅🛤️🏳️
+
+<p>Dentro da pasta routes que criei tenho um arquivo chamado <strong>index.ts</strong></p>
+
+<img src="imgREADME/routes.png" alt="imagem da estrutura da pasta routes">
+<a href="src/routes/index.ts">index.ts</a>
+
+#
+<p>COMUNICADO!!, essa pasta `_html`  não e obrigatoria no projeto, o arquivo HTML|pode ficar na raiz do projeto.</p>
 
 <img src="imgREADME/Rotas.png">
 
+#
+
+## ⚙️Estrutura do projeto daqui pra frente!😉
+ 
+- Depois de eu ter configurado o servidor e ele já esta rodando eu criei 2 pastas dentro do `src`
+
+<p>vou mostrar abaixo a estrutura dele</p>
+<img src="imgREADME/estrura src_models_controllers.png" alt="imagem das pastas do projeto">
