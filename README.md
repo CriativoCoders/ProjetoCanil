@@ -149,3 +149,29 @@ nodemon -e ts,json,mustache src/server.ts
 
 <p>vou mostrar abaixo a estrutura dele</p>
 <img src="imgREADME/estrura src_models_controllers.png" alt="imagem das pastas do projeto">
+
+#
+
+## configurando as rotas para navegação controllers!!⛵
+
+<img src="imgREADME/rotas_nav.png" alt="imagem da navegação da pagina">
+
+- filtram e mostram uma lista de imagem 
+- vou fazer um controller para essas navegações!
+
+&nbsp;
+<p>Entre na pasta controllers para ver a estrutura e como configurei😉</p>
+<a href="src/controllers/pageController.ts">controllers</a>
+
+#
+
+## separdo as views 
+- dentro de `src` crie uma pasta views
+- dentro dela crie as pasta `pages` e `partials`
+<a href="src/views/">Pasta views</a>
+
+
+## Manipulando dados da navegação entre páginas
+
+## Ativando menu
+

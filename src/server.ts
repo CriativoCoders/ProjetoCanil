@@ -24,3 +24,5 @@ server.use((req, res)=>{
 
 // Pré-configurando servidor
 server.listen(process.env.PORT);
+
+// servidor configurado 
