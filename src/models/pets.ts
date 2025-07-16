@@ -1,17 +1,18 @@
 // um model é uma representação de um objeto do banco de dados, que pode ser usado para criar, ler, atualizar e excluir dados no banco de dados
-// no meu caso o model pet vai ser usado para filrar os pets por tipo, e filtrar os pets por nome.
-type PetType = 'dog' | 'cat' | 'fish';
+// no meu caso o model pet vai ser usado para filtrar os pets por tipo, e filtrar os pets por nome.
 
+type PetType = 'dog' | 'cat' | 'fish';
+type PetSex = 'Masculino' | 'Feminino';
 type Pet = {
     type: PetType,
     image: string,
     name: string,
     color: string,
-    sex: 'Masculino' | 'Feminino'
+    sex: PetSex
 
 }
 
-// aqui vou criar uma constante que vai ter um array de objetos de dados dos pets
+//                 ⬇️AQUI VOU CRIAR UMA CONSTANTE QUE VAI TER UM ARRAY DE OBJETOS DE DADOS DOS PETS⬇️             //
 const data: Pet[] = [
     { 
         type: 'dog',
@@ -135,7 +136,13 @@ const data: Pet[] = [
         sex: 'Masculino' 
     },
 ];
-// aqui vou criar uma função que vai retorna todos os pets 
+
+//                         AQUI VOU CRIAR UMA FUNÇÃO QUE VAI RETORNA TODOS OS PETS                              //
+// ########################################################################################################### //
+// caso o usuario digite apenas bul, ele vai retornar todos os pets que tem o nome bul ou que comecem com bul //
+//                  aqui vou fazer a filtragem dos pets pelo nome                                            //
+// ######################################################################################################## //
+
 export const Pet = {
     getAll: (): Pet[] => {
         return data;
@@ -144,14 +151,9 @@ export const Pet = {
         return data.filter(item => item.type === type);
     },
     getFromName: (name: string): Pet[] => {
-        return data.filter(item => {
-            if(item.name.indexOf(name) > -1) {
-                return true;
-            }else {
-                return false;
-            } // caso o usuario digite apenas bul, ele vai retornar todos os pets que tem o nome bul ou que comecem com bul.
-        }); // aqui vou fazer a filtragem dos pets pelo nome
-        
+        return data.filter(item => 
+            item.name.toLowerCase().indexOf(name.toLowerCase()) > -1
+        );
     }
     // esse filtro vai gerar um novo array 
 };

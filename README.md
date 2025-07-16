@@ -244,6 +244,42 @@ res.render('pages/page', {
 <a href="src/helpers/createMenuObjects.ts">link pasta / helpers</a>
 
 
-## Criando o Model pet: 1
+## Criando o Model pet:
+- Clareza, Organização, Funcionalidade ✅
+<h3>🐾 O que é isso?</h3>
+<p>Esse código é um modelo de dados (model) chamado Pet, que serve para organizar, armazenar e buscar informações sobre animais (cachorros, gatos e peixes) em meu web site</p>
+
+
+<h2>✅ Pra que serve exatamente?</h2>
+
+<h3> 1. Amazenar dados dos pets</h3>
+<p>Você cria uma lista (data) com vários pets, cada um com:</p>
+
+- tipo (dog, cat, fish)
+- nome
+- imagem 
+- cor
+- sexo
+
+<br>
+
+<h3>2. Buscar todos os pets</h3>
+
+
+- A função `getAll()` devolve a lista inteira de animais, útil para a página inicial do site, por exemplo.
+
+<br>
+
+<h3>3. Filtrar pets por tipo</h3>
+
+- A função `getFromType('dog')` devolve apenas os cachorros. Isso é útil se alguém clicar em um botão.
+<br>
+`"Ver somente cães"`
+
+<h3>4. Filtrar pets por nome</h3>
+
+- A função `getFromName('bul')` devolve todos os pets que tenham `“bul”` no nome, como `“Bulldog”`. Isso é um sistema de busca inteligente, que funciona mesmo com partes do nome e sem diferenciar maiúsculas de minúsculas.
+
+<br>
 
 <a href="src/models/pets.ts">link para / pasta models</a>
