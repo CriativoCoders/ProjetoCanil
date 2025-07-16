@@ -168,10 +168,82 @@ nodemon -e ts,json,mustache src/server.ts
 ## separdo as views 
 - dentro de `src` crie uma pasta views
 - dentro dela crie as pasta `pages` e `partials`
-<a href="src/views/">Pasta views</a>
+<a href="src/views/">Link arquivo / Pasta views</a>
 
-
+---
 ## Manipulando dados da navegação entre páginas
 
-## Ativando menu
+## Ativando menu ⚙️🗃️⬇️
+<p>Aqui vou explicar como foi estruturado essa parte do código passo a passo!</p>
+<p>Essa parte e básicamente, página inicial de um site que mostra animais (tipo cachorros, gatos e peixes).</p>
 
+## Agora Vamos por Partes !!🍕 📦 1. Importações
+
+``` ts
+import { Request, Response } from 'express';
+```
+- `Request` é o pedido do cliente (tipo: "Oi, quero ver todos os animais!")
+
+- `Response` é o que você vai entregar de volta (a página bonitinha com os animais).
+
+## 🏠 2. Criando a função da rota home
+
+``` ts
+export const home = (req: Request, res: Response) => {
+```
+<p>🍳 Aqui estamos criando uma função chamada <strong>home</strong>.</p>
+
+<p>Pensa que ela é o chefe da cozinha que vai preparar a página quando alguém quiser ver a página principal.</p>
+
+## 🖼️ 3. Renderizando a página
+
+``` ts
+res.render('pages/page', {
+```
+<p>👩‍🍳 Esse é o momento em que o chefe fala:</p>
+
+- "Vamos montar uma página usando o molde chamado `'pages/page'`."
+
+## 🍔 4. Passando os dados (variáveis) para a view
+
+``` ts
+    menu: {
+        all: true,
+        dog: false,
+        cat: false,
+        fish: false
+    },
+```
+<p>📋 Aqui ele está dizendo:</p>
+
+- "No menu, vamos deixar 'Todos os animais' ligado `(true)` e os outros desligados `(false)`."
+- É como se o site tivesse botões de filtro, e só o botão "Todos os animais" estivesse acesso `(tipo uma luzinha)`
+
+## Banner 
+``` ts
+    banner: {
+        title: 'Todos os animais',
+        background: 'allanimals.jpg',
+    }
+```
+<p>Outro objeto chamado banner está sendo enviado com:</p>
+
+- `title:` o título do banner que vai aparecer na parte de cima da página.
+- `background:` o nome da imagem de fundo que será mostrada.
+- E fiz assim para os demais titulos e imagens !!.
+
+<a href="src/controllers/pageController.ts">link da página / pageController</a>
+
+<img src="imgREADME/pageController.png" alt="img do arquivo pageControllers.ts">
+
+#
+
+## Criando funções Auxiliares ⛱️💡
+
+<p>Criei dentro da pasta src, outra pasta chamada helpers, e dentro dela criei o arquivo createMenuObjects.js</p>
+<a href="src/helpers/createMenuObjects.ts">link pasta / helpers</a>
+
+
+## Criando o Model pet: 1
+
+<a href="src/models/pets.ts">link para / pasta models</a>
