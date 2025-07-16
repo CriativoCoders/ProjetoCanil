@@ -273,8 +273,8 @@ res.render('pages/page', {
 <h3>3. Filtrar pets por tipo</h3>
 
 - A função `getFromType('dog')` devolve apenas os cachorros. Isso é útil se alguém clicar em um botão.
-<br>
 `"Ver somente cães"`
+<br>
 
 <h3>4. Filtrar pets por nome</h3>
 
@@ -283,3 +283,30 @@ res.render('pages/page', {
 <br>
 
 <a href="src/models/pets.ts">link para / pasta models</a>
+
+#
+
+<h1>Listando os pets no controller 😉</h1>
+
+<h3>Usando o model dentro do controller</h3>
+<br>
+
+- Primeiro fiz a importação dos controllers aqui 
+
+<a href="src/controllers/pageController.ts">link / pasta controlles / pageControllers</a>
+
+- dentro da pasta views/pages/page -  eu chamo as depedencias que coloquei no meu models !
+
+<a href="src/views/pages/page.mustache">link / pasta views/ pages/ page.mustache</a>
+
+#
+
+<h2>Aqui estou fazendo rotas com essas seguintes estruturas ⛵⛵</h2>
+
+<img src="imgREADME/controllersRotas.png"/>
+
+``` ts
+let list = Pet.getFromType('dog')
+```
+
+- repare que eu chamo a lista do meu models que criei para chamar essas rotas !!
