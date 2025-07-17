@@ -347,3 +347,194 @@ let list = Pet.getFromType('dog')
 
 ```
 
+# COLOCANDO PROJETO NO AR ✈️✈️✈️
+
+- Como criamos o projeto em typeScript, para coloca-lo no ar, precisamos converter e transcrever os arquivos para javaScript para que ele funcione no Node.
+
+- Usando Heroku, que quando jogarmos o projeto na plataforma dele, que ele vai jogar atráves do git ja tendo o repositorio para pegar os dados do projeto !!
+
+# 
+
+### 1 - Criei um arquivo chamado Procfile para implantar aplicações em plataformas de cloud como Heroku
+
+<img src="imgREADME/Procfile4.png"/>
+
+<br>
+<p>O Procfile informa à plataforma qual comando deve ser executado para iniciar a sua aplicação. É uma forma simples de dizer, por exemplo:</p>
+
+- Qual arquivo iniciar `(ex: node dist/server.js)`
+- Qual comando rodar `(ex: npm start, npm run serve)`
+
+<br>
+<p>Em meu caso coloquei:</p>
+
+- web: npm start
+
+#
+
+### 2 - No arquivo tsconfig.json verifique se voce tem:
+
+-  `"outDir": "dist",`  
+
+-  `"rootDir": "src",`
+
+<p>Tendo Ambos coloque o seguinte comando no terminal</p>
+
+- `tsc`
+
+<p>vai gerar uma pasta chamada dist, isso significa que o TypeScript compilou os arquivos.ts, e gerou arquivos.js dentro da pasta "dist"</p>
+
+- isso e importante pois o Node.js não entende TypeScript nativamente, então você precisa transpilar .ts para .js antes de executar.
+- A pasta dist é onde ficam esses arquivos prontos para produção.
+
+#
+
+### 3 - seu arquivo de configuração package.jason deve conter esses comandos aqui támbem !!
+
+``` json
+{
+  "name": "nodets-canil",
+  "version": "1.0.0",
+  "main": "index.js",
+  
+  "engines":{
+    "node": "22.x"
+  },
+  "scripts": {
+    "start": "node dist/server.js", 
+    "postinstall": "",
+
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon -e ts,json,mustache src/server.ts"
+  },
+  "author": "TalitaCristina",
+  "license": "ISC",
+  "description": "&nbsp;",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mustache-express": "^1.3.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/mustache-express": "^1.2.5",
+    "@types/node": "^22.16.0",
+    "typescript": "^5.8.3"
+  }
+}
+
+```
+- engines
+- start
+- postinstall
+
+#
+
+### 4 - Faça um teste rodando o Projeto
+
+- `node dist/server.js`
+
+<h3>Atenção pois aparecerá um erro</h3>
+
+<img src="imgREADME/ErroDist.png" />
+
+- Fala que ele não achou pages/page na pasta views e procurou "C:\Users\ct67ca\Desktop\ProjetoCanil\dist\views"
+<br>
+
+<h3>Resolvendo o problema</h3>
+<p>oque aconteceu ???</p>
+
+- dentro da pasta dist não tem a pasta dist, porque nessa pasta não tem typescript e foi ignorada.
+
+<br>
+
+- encerre o terminal
+- e rodar o comando typeScript
+- e rodar  outro comando para copiar os items da pasta views todos os mustaches para a pasta dist.
+
+<br>
+
+<p>Delete a pasta dist</p>
+
+- vamos instalar uma biblioteca que ajuda a fazer transcrições e copias
+- `npm install --save-dav copyfiles``
+
+<br>
+<p>Colocar esse comando no "postinstall": apos instalar a biblioteca </p>
+
+- "postinstall": "tsc && copyfiles -u 1 src/**/*.mustache dist/",
+
+
+``` json
+  "scripts": {
+    "start": "node dist/server.js",
+    "postinstall": "tsc && copyfiles -u 1 src/**/*.mustache dist/",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon -e ts,json,mustache src/server.ts"
+  },
+```
+
+#
+
+### 5 - Rodando 
+
+<p>Depois dar o comando </p>
+
+- npm run postinstall
+
+<p>Ele vai gerar outra pasta dist </p>
+
+- ``npm start` vai iniciar o servidor novamente.
+
+#
+
+### 6 - Configurando Heroku
+
+1 
+- crie uma conta no Heroku
+- depois pesquise por heroku cli para instalar 
+
+<br>
+
+2
+- Depois de instalar veirifique se foi instalado corretamente `heroku --version`
+- feito isso no terminal da um `heroku login`no cmd e fazer o login
+
+<br>
+
+3
+- depois ir até a pasta do projeto `cd nome do projeto`
+- depois que entrar na pasta da um `heroku create` ele vai gerar uma url e tudo mais
+- depois dar um `git add .`
+- git commit -m "heroku setup"
+- git push heroku main, esperar ele termina o processo de configuração
+
+<br>
+
+#
+
+<h3>Atenção nosso tsc vai da um problema pois esta em um comando global</h3>
+<p>Vamos resolver o problema:</p>
+
+- vamos dar o comando `npm install typescript` e instalar dentro do projeto
+- depois de instalado e vamos criar um script chamado tsc..
+
+``` json
+  "scripts": {
+    "tsc": "tsc",
+    "start": "node dist/server.js",
+    "postinstall": "npm run tsc && copyfiles -u 1 src/**/*.mustache dist/",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon -e ts,json,mustache src/server.ts"
+  },
+```
+
+- `"postinstall": "npm run tsc && copyfiles -u 1 src/**/*.mustache dist/",` coloquei npm run tsc nesta linha para rodar
+
+#
+
+4 
+- depois da um git commit -m "qualquer coisa - add tsc"
+- e dar o git push novamente `git push heroku main`
+- depois de finalizado
+- depois da o comando `heroku open` no cmd e vai gerar um link com o projeto funcionando

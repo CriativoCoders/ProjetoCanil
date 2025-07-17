@@ -1,3 +1,5 @@
+// A FUNÇÃO DO CONTROLLER E USAR O MODEL PARA PEGAR OS DADOS E ORGANIZAR AS COISAS E ENVIAR OS DADOS PRO VIEW 
+// PAPEL DE CONTROLADORM, CONTROLANDO OQUE ESTA ACONTECENDO
 import { Request, Response } from 'express';
 import { createMenuObject } from '../helpers/createMenuObject'; // usando essa função para criar o objeto de menu
 // MODEL DENTRO DO CONTROLLER

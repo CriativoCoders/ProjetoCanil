@@ -19,7 +19,8 @@ server.use(mainRoutes);
 
 // Pagina de não encontrado
 server.use((req, res)=>{
-    res.send('página não encontrada!');
+    // res.send('página não encontrada!');
+    res.render('pages/404');
 });
 
 // Pré-configurando servidor
