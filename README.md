@@ -310,3 +310,40 @@ let list = Pet.getFromType('dog')
 ```
 
 - repare que eu chamo a lista do meu models que criei para chamar essas rotas !!
+
+# 
+
+# Fazendo Busca e o 404 tratamento de Erros
+
+<img src="imgREADME/searchimport.png"/>
+
+<a href="src/controllers/searchController.ts">Link / Pasta controllers / arquivo searchControllers</a>
+
+#
+
+<h2>Informação importante ❌❌❌</h2>
+
+- Perceba que fiz uma pesquisa chamada buldog, apareceu a seguinte informação `http://localhost:4001/search?q=buldog`
+- perceba que apareceu um `q` perceba que terei que pagar um request para fazer esse cara.
+
+<img src="imgREADME/Pesquisateste.png"/>
+
+- olhe abaixo o codigo e como fiz funcionar e basicamente aqui que a magica da pesquisa funciona !! se digitar maiusculo ou minusculo ele vai encontrar mesmo assim .
+
+<img src="imgREADME/codigopesquisa.png"/>
+
+#
+
+# Criando Script para manter nome da pesquisa na Barra de Pesquisa.
+
+- primeiro passo ir no arquivo searchController.ts, pegar o query mandar para página
+- depois ir no herader.mustache, é no input e colocar um ``value="{{ query }}"`
+
+``` html
+
+<form method="GET" action="/search">
+    <input type="search" name="q" placeholder="Pesquise por raça" value="{{ query }} /> 
+</form>
+
+```
+
